@@ -208,3 +208,23 @@ def smooth_edges(obj, angle_deg=40):
     bpy.context.view_layer.objects.active = obj
     bpy.ops.object.shade_auto_smooth(angle=math.radians(angle_deg))
     return obj
+
+
+def glb_to_json(glb_path, out_path):
+    """GLB를 버퍼를 base64로 품은 glTF JSON 한 파일로 바꾼다 (.glb를 못 올리는 웹 게시용)."""
+    import base64
+    import json
+    import struct
+    data = open(glb_path, "rb").read()
+    offset, doc, binary = 12, None, b""
+    while offset < len(data):
+        length, kind = struct.unpack_from("<II", data, offset)
+        chunk = data[offset + 8: offset + 8 + length]
+        if kind == 0x4E4F534A:
+            doc = json.loads(chunk)
+        elif kind == 0x004E4942:
+            binary = chunk
+        offset += 8 + length
+    doc["buffers"][0]["uri"] = "data:application/octet-stream;base64," + base64.b64encode(binary).decode()
+    with open(out_path, "w") as f:
+        json.dump(doc, f, separators=(",", ":"))

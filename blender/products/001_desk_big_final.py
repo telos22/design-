@@ -49,6 +49,7 @@ desk()
 for o in bpy.data.objects:   # 10cm 단위 → 미터 (모디파이어는 export_apply로 적용)
     o.location = o.location * 0.1
     o.scale = o.scale * 0.1
-out = os.path.join(studio.REPO, "exports", "001_desk_big_final.glb")
-bpy.ops.export_scene.gltf(filepath=out, export_apply=True)
-print(out, os.path.getsize(out))
+base = os.path.join(studio.REPO, "exports", "001_desk_big_final")
+bpy.ops.export_scene.gltf(filepath=base + ".glb", export_apply=True)
+studio.glb_to_json(base + ".glb", base + ".gltf.json")   # 웹 뷰어용 (JSON 한 파일)
+print(base, os.path.getsize(base + ".gltf.json"))
