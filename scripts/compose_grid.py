@@ -21,4 +21,4 @@ for i, f in enumerate(files):
     if i % len(cols) == 0:
         ax.set_ylabel(rows[i // len(cols)], fontsize=15)
 fig.suptitle(title, fontsize=18)
-fig.tight_layout(); fig.savefig(out, dpi=80, facecolor="white")
+fig.tight_layout(rect=(0, 0, 1, 0.92 if len(rows) == 1 else 0.96)); fig.savefig(out, dpi=80, facecolor="white")
