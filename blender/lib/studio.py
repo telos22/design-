@@ -245,3 +245,19 @@ def cable(name, points, mat, radius=0.02):
     bpy.context.collection.objects.link(obj)
     obj.data.materials.append(mat)
     return obj
+
+
+def extrude_x(name, profile_yz, x0, x1, mat=None):
+    """(y, z) 단면을 x0에서 x1까지 밀어낸 덩어리 (옆판, 단면이 있는 레일 등)."""
+    n = len(profile_yz)
+    verts = [(x0, y, z) for y, z in profile_yz] + [(x1, y, z) for y, z in profile_yz]
+    faces = [tuple(range(n))[::-1], tuple(range(n, 2 * n))]
+    faces += [(i, (i + 1) % n, n + (i + 1) % n, n + i) for i in range(n)]
+    mesh = bpy.data.meshes.new(name)
+    mesh.from_pydata(verts, [], faces)
+    mesh.validate()
+    obj = bpy.data.objects.new(name, mesh)
+    bpy.context.collection.objects.link(obj)
+    if mat:
+        assign(obj, mat)
+    return obj
