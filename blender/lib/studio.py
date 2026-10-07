@@ -26,14 +26,69 @@ def material(name, color=(0.8, 0.8, 0.8), roughness=0.5, metallic=0.0, transmiss
     return mat
 
 
+def box(name, size, location, mat=None, bevel=0.0):
+    """size=(가로, 깊이, 높이) 직육면체, location은 중심, bevel은 모서리 둥글기."""
+    bpy.ops.mesh.primitive_cube_add(size=1, location=location)
+    obj = bpy.context.object
+    obj.name = name
+    obj.scale = size
+    bpy.ops.object.transform_apply(location=False, rotation=False, scale=True)
+    if bevel:
+        b = obj.modifiers.new("Bevel", "BEVEL")
+        b.width, b.segments = bevel, 3
+    if mat:
+        assign(obj, mat)
+    return obj
+
+
+def wood(name, color, grain=0.15, roughness=0.6, scale=1.0):
+    """나무결 재질. color는 평균색(선형 RGB), grain은 결의 진하기."""
+    mat = material(name, color, roughness)
+    nt = mat.node_tree
+    bsdf = nt.nodes["Principled BSDF"]
+    coord = nt.nodes.new("ShaderNodeTexCoord")
+    mapping = nt.nodes.new("ShaderNodeMapping")
+    mapping.inputs["Scale"].default_value = (0.15 * scale, 1.2 * scale, 1.0)
+    wave = nt.nodes.new("ShaderNodeTexWave")
+    wave.wave_type, wave.bands_direction = "BANDS", "Y"
+    wave.inputs["Scale"].default_value = 3.0
+    wave.inputs["Distortion"].default_value = 6.0
+    wave.inputs["Detail"].default_value = 3.0
+    ramp = nt.nodes.new("ShaderNodeValToRGB")
+    lo = tuple(c * (1 - grain) for c in color)
+    hi = tuple(min(1.0, c * (1 + grain)) for c in color)
+    ramp.color_ramp.elements[0].color = (*lo, 1)
+    ramp.color_ramp.elements[1].color = (*hi, 1)
+    nt.links.new(coord.outputs["Object"], mapping.inputs["Vector"])
+    nt.links.new(mapping.outputs["Vector"], wave.inputs["Vector"])
+    nt.links.new(wave.outputs["Fac"], ramp.inputs["Fac"])
+    nt.links.new(ramp.outputs["Color"], bsdf.inputs["Base Color"])
+    return mat
+
+
+def label(text, location, size=0.6, color=(0.1, 0.1, 0.1)):
+    """바닥에 눕힌 한글 글자."""
+    bpy.ops.object.text_add(location=location)
+    obj = bpy.context.object
+    obj.data.body = text
+    obj.data.size = size
+    obj.data.align_x = "CENTER"
+    font = "/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc"
+    if os.path.exists(font):
+        obj.data.font = bpy.data.fonts.load(font, check_existing=True)
+    assign(obj, material("Label", color, roughness=0.8))
+    return obj
+
+
 def assign(obj, mat):
     obj.data.materials.clear()
     obj.data.materials.append(mat)
     return obj
 
 
-def studio(floor_color=(0.92, 0.91, 0.89), world_strength=0.35):
-    """무한 배경(사이클로라마) 바닥 + 키/필/림 3점 조명."""
+def studio(floor_color=(0.92, 0.91, 0.89), world_strength=0.35, scale=1.0):
+    """무한 배경(사이클로라마) 바닥 + 키/필/림 3점 조명.
+    scale: 큰 제품(가구 등)일 때 배경·조명을 함께 키운다."""
     scene = bpy.context.scene
     world = bpy.data.worlds.new("World")
     world.use_nodes = True
@@ -41,7 +96,7 @@ def studio(floor_color=(0.92, 0.91, 0.89), world_strength=0.35):
     world.node_tree.nodes["Background"].inputs["Strength"].default_value = world_strength
     scene.world = world
 
-    bpy.ops.mesh.primitive_plane_add(size=40, location=(0, 0, 0))
+    bpy.ops.mesh.primitive_plane_add(size=40 * scale, location=(0, 0, 0))
     floor = bpy.context.object
     floor.name = "Floor"
     # 뒤쪽 벽으로 부드럽게 휘어 올라가는 배경
@@ -51,19 +106,19 @@ def studio(floor_color=(0.92, 0.91, 0.89), world_strength=0.35):
     for v in floor.data.vertices:
         v.select = v.co.y > 0
     bpy.ops.object.mode_set(mode="EDIT")
-    bpy.ops.mesh.extrude_region_move(TRANSFORM_OT_translate={"value": (0, 0, 15)})
+    bpy.ops.mesh.extrude_region_move(TRANSFORM_OT_translate={"value": (0, 0, 15 * scale)})
     bpy.ops.object.mode_set(mode="OBJECT")
     bev = floor.modifiers.new("Bevel", "BEVEL")
-    bev.width, bev.segments = 4, 16
-    floor.location.y = 6
+    bev.width, bev.segments = 4 * scale, 16
+    floor.location.y = 6 * scale
     assign(floor, material("Floor", floor_color, roughness=0.9))
 
     def area(name, loc, energy, size):
-        bpy.ops.object.light_add(type="AREA", location=loc)
+        bpy.ops.object.light_add(type="AREA", location=Vector(loc) * scale)
         light = bpy.context.object
         light.name = name
-        light.data.energy, light.data.size = energy, size
-        direction = Vector((0, 0, 0.5)) - light.location
+        light.data.energy, light.data.size = energy * scale**2, size * scale
+        direction = Vector((0, 0, 0.5 * scale)) - light.location
         light.rotation_euler = direction.to_track_quat("-Z", "Y").to_euler()
         return light
 
@@ -84,7 +139,7 @@ def camera(target=(0, 0, 0.5), distance=6, height=2.5, angle_deg=-35, lens=60):
     return cam
 
 
-def render(name, samples=64, resolution=(1200, 900)):
+def render(name, samples=64, resolution=(1200, 900), view="AgX", exposure=0.0):
     """Cycles CPU로 renders/<name>.png 저장."""
     scene = bpy.context.scene
     scene.render.engine = "CYCLES"
@@ -92,7 +147,8 @@ def render(name, samples=64, resolution=(1200, 900)):
     scene.cycles.samples = samples
     scene.cycles.use_denoising = True
     scene.render.resolution_x, scene.render.resolution_y = resolution
-    scene.view_settings.view_transform = "AgX"
+    scene.view_settings.view_transform = view
+    scene.view_settings.exposure = exposure
     path = os.path.join(REPO, "renders", f"{name}.png")
     scene.render.filepath = path
     bpy.ops.render.render(write_still=True)
