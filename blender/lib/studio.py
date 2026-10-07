@@ -183,3 +183,19 @@ def lathe(name, profile, segments=96, thickness=0.0, smooth=True):
         for poly in mesh.polygons:
             poly.use_smooth = True
     return obj
+
+
+def prism(name, points, height, location=(0, 0, 0), mat=None):
+    """바닥 모양(points: [(x, y), ...], 반시계 방향)을 height만큼 위로 세운 기둥. location은 바닥 기준점."""
+    n = len(points)
+    verts = [(x, y, 0) for x, y in points] + [(x, y, height) for x, y in points]
+    faces = [tuple(range(n))[::-1], tuple(range(n, 2 * n))]
+    faces += [(i, (i + 1) % n, n + (i + 1) % n, n + i) for i in range(n)]
+    mesh = bpy.data.meshes.new(name)
+    mesh.from_pydata(verts, [], faces)
+    obj = bpy.data.objects.new(name, mesh)
+    obj.location = location
+    bpy.context.collection.objects.link(obj)
+    if mat:
+        assign(obj, mat)
+    return obj
