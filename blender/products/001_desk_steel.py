@@ -35,7 +35,7 @@ def materials():
     }
 
 
-def desk(m):
+def desk(m, holes=True):
     zt = H - T / 2
     studio.box("Ply", (W, D, T - 0.02), (0, 0, zt), m["ply"])
     studio.box("SkinTop", (W, D, 0.01), (0, 0, zt + T / 2 - 0.005), m["top"])
@@ -44,11 +44,11 @@ def desk(m):
         studio.box("RailLong", (2 * IX, FR_T, FR_H), (0, s * (IY - FR_T / 2), FZ), m["steel"])
         studio.box("RailShort", (FR_T, 2 * IY, FR_H), (s * (IX - FR_T / 2), 0, FZ), m["steel"])
     # 구멍: 뒤 레일(+y)과 양옆 레일의 안쪽 면
-    n = int((2 * IX - 0.6) / PITCH)
+    n = int((2 * IX - 0.6) / PITCH) if holes else -1
     for i in range(n + 1):
         x = -IX + 0.3 + i * PITCH
         studio.box("HoleBack", (0.05, 0.012, 0.2), (x, IY - FR_T - 0.004, FZ), m["hole"])
-    n = int((2 * IY - 0.6) / PITCH)
+    n = int((2 * IY - 0.6) / PITCH) if holes else -1
     for s in (-1, 1):
         for i in range(n + 1):
             y = -IY + 0.3 + i * PITCH

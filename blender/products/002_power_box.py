@@ -67,7 +67,7 @@ def strip(n, x0, y0, m):
     return centers
 
 
-def plug(cx, y0, m, kind, cord_to):
+def plug(cx, y0, m, kind, cord_to, rise=0.7):
     """꽂힌 플러그와 위로 빠지는 선. kind: 'plug' 둥근 플러그 / 'brick' 충전기 일체형"""
     z = T + 0.39
     if kind == "brick":
@@ -78,8 +78,8 @@ def plug(cx, y0, m, kind, cord_to):
         studio.assign(bpy.context.object, m["dark"])
         studio.smooth_edges(bpy.context.object)
         top = z + 0.28
-    studio.cable("Cord", [(cx, y0, top), (cx, y0, top + 0.25), (cx + cord_to[0] * 0.3, y0 + cord_to[1] * 0.3, top + 0.5),
-                          (cx + cord_to[0], y0 + cord_to[1], top + 0.7)], m["dark"] if kind == "plug" else m["plug"], radius=0.025)
+    studio.cable("Cord", [(cx, y0, top), (cx, y0, top + rise * 0.35), (cx + cord_to[0] * 0.3, y0 + cord_to[1] * 0.3, top + rise * 0.7),
+                          (cx + cord_to[0], y0 + cord_to[1], top + rise)], m["dark"] if kind == "plug" else m["plug"], radius=0.025)
 
 
 def scene(name, cam_loc, cam_target, lens, contents=True):
