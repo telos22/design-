@@ -1,0 +1,121 @@
+<title>책상 160 × 60</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+<style>
+/* 레이아웃: 위에 3D 뷰어(책상이 주인공), 아래에 시점 버튼 → 치수·재료 표. 색은 책상 상판의 따뜻한 회색에서 가져옴 */
+:root {
+  --bg: #f1efea;
+  --stage: #dedad2;
+  --surface: #faf9f6;
+  --ink: #23221f;
+  --muted: #6e6a62;
+  --line: #d3cec4;
+  --alu: #8f949b;
+  --accent: #7a6f5c;
+  --font-body: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1b1a18; --stage: #2a2825; --surface: #232220; --ink: #ece9e2;
+    --muted: #a39e93; --line: #3a3833; --alu: #a9aeb5; --accent: #c2b59c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1b1a18; --stage: #2a2825; --surface: #232220; --ink: #ece9e2;
+  --muted: #a39e93; --line: #3a3833; --alu: #a9aeb5; --accent: #c2b59c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.6; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 16px; padding-block: 28px 56px; display: grid; gap: 24px; }
+header { display: grid; gap: 6px; }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { margin: 0; font-size: clamp(26px, 4vw, 36px); font-weight: 600; letter-spacing: -.01em; text-wrap: balance; }
+.lede { margin: 0; color: var(--muted); max-width: 62ch; }
+.stage { position: relative; background: var(--stage); border-radius: 6px; overflow: hidden; }
+model-viewer { width: 100%; aspect-ratio: 16 / 10; max-width: 100%; display: block; --poster-color: transparent; background: var(--stage); }
+.hint { position: absolute; left: 12px; bottom: 10px; font-size: 12px; color: var(--muted); pointer-events: none; }
+.views { display: flex; flex-wrap: wrap; gap: 8px; }
+.views button {
+  font: 500 13px var(--font-body); color: var(--ink); background: var(--surface);
+  border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; cursor: pointer;
+}
+.views button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.views button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+section { min-width: 0; }
+h2 { font-size: 13px; font-weight: 600; letter-spacing: .06em; color: var(--muted); margin: 0 0 8px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; vertical-align: top; padding: 10px 8px 10px 0; border-top: 1px solid var(--line); }
+th { font-weight: 500; width: 7em; color: var(--muted); }
+td .num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+td small { display: block; color: var(--muted); font-size: 13px; }
+.swatch { display: inline-block; width: .9em; height: .9em; border-radius: 2px; vertical-align: -.1em; margin-right: 6px; border: 1px solid var(--line); }
+.why { display: grid; gap: 0; }
+.why div { display: grid; grid-template-columns: 5.5em 1fr; gap: 8px; padding: 10px 0; border-top: 1px solid var(--line); }
+.tag { font-family: var(--font-mono); font-size: 12px; color: var(--accent); padding-top: 2px; }
+@media (prefers-reduced-motion: reduce) { model-viewer { --progress-bar-height: 0; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">No more, No less · 책상 001</span>
+    <h1>책상 160 × 60</h1>
+    <p class="lede">한 사람이 두 작업 영역을 나눠 쓰는 큰 책상. 위는 비어 있고, 보이는 것은 상판과 다리 네 개뿐입니다.</p>
+  </header>
+
+  <div class="stage">
+    <model-viewer id="desk" src="desk.glb" poster="poster.jpg" alt="160×60cm 책상 3D 모델"
+      camera-controls touch-action="pan-y" shadow-intensity="1" shadow-softness="0.8"
+      environment-image="neutral" exposure="1.05"
+      camera-target="0m 0.4m 0m" camera-orbit="-35deg 66deg 3.4m" field-of-view="32deg"
+      min-camera-orbit="auto 0deg 0.6m" max-camera-orbit="auto 92deg 6m" interaction-prompt="none">
+    </model-viewer>
+    <span class="hint">드래그로 돌리기 · 휠이나 두 손가락으로 확대</span>
+  </div>
+
+  <div class="views" role="group" aria-label="시점">
+    <button id="v-iso" aria-pressed="true" data-orbit="-35deg 66deg 3.4m" data-target="0m 0.4m 0m" data-fov="32deg">비스듬히</button>
+    <button id="v-front" aria-pressed="false" data-orbit="0deg 84deg 3.6m" data-target="0m 0.4m 0m" data-fov="32deg">정면</button>
+    <button id="v-side" aria-pressed="false" data-orbit="90deg 84deg 2.4m" data-target="0m 0.4m 0m" data-fov="32deg">옆</button>
+    <button id="v-top" aria-pressed="false" data-orbit="0deg 0deg 3.4m" data-target="0m 0.72m 0m" data-fov="32deg">위</button>
+    <button id="v-seat" aria-pressed="false" data-orbit="0deg 58deg 0.85m" data-target="0m 0.72m -0.05m" data-fov="62deg">앉은 눈높이</button>
+  </div>
+
+  <div class="grid">
+    <section>
+      <h2>치수와 재료</h2>
+      <table>
+        <tr><th>상판</th><td><span class="num">1600 × 600 × 25 mm</span><small>자작합판, 위아래 무광 마감재</small></td></tr>
+        <tr><th>상판 색</th><td><span class="swatch" style="background:#b3ada3"></span>따뜻한 밝은 회색<small>반사율 약 45%, 흰 종이와 밝기 비율 1.8 : 1</small></td></tr>
+        <tr><th>높이</th><td><span class="num">720 mm</span> 고정</td></tr>
+        <tr><th>다리</th><td><span class="num">30 × 30 mm</span> 알루미늄 사각관 4개<small>모서리 끝, 칠하지 않은 알루미늄</small></td></tr>
+        <tr><th>프레임</th><td><span class="num">40 × 20 mm</span> 알루미늄<small>다리 안쪽 면에 맞춰 상판 아래에 숨김</small></td></tr>
+      </table>
+    </section>
+    <section>
+      <h2>왜 이렇게 정했나</h2>
+      <div class="why">
+        <div><span class="tag">깊이 60</span><span>앉아서 실제로 손이 닿고 쓰는 깊이. 그 뒤 20cm는 쓰지 않았다.</span></div>
+        <div><span class="tag">폭 160</span><span>80cm 작업 영역 두 칸. 지금 쓰는 방식 그대로.</span></div>
+        <div><span class="tag">색</span><span>종이가 또렷하되 눈이 편한 밝기. 무늬와 광택이 없어 판이 물러난다.</span></div>
+        <div><span class="tag">모서리 다리</span><span>책상끼리 붙이면 맞닿은 다리가 하나로 보인다. 끝을 짚어도 기울지 않는다.</span></div>
+        <div><span class="tag">알루미늄</span><span>칠을 더하지 않는다. 바닥 근처 긁힘이 티 나지 않는다.</span></div>
+        <div><span class="tag">프레임</span><span>가는 다리가 흔들리지 않게 하는 만큼만. 100N으로 밀어도 약 1mm.</span></div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script>
+  const mv = document.getElementById("desk");
+  const buttons = document.querySelectorAll(".views button");
+  buttons.forEach((b) => b.addEventListener("click", () => {
+    buttons.forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    mv.cameraTarget = b.dataset.target;
+    mv.fieldOfView = b.dataset.fov;
+    mv.cameraOrbit = b.dataset.orbit;
+  }));
+</script>
