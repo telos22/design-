@@ -9,8 +9,12 @@ _mats = {}
 
 
 def _mat(name, *args, **kw):
-    if name not in _mats or _mats[name].name not in bpy.data.materials:
-        _mats[name] = studio.material(name, *args, **kw)
+    try:
+        if bpy.data.materials.get(_mats[name].name) is _mats[name]:
+            return _mats[name]
+    except (KeyError, ReferenceError):   # 처음이거나 new_scene()으로 지워진 경우
+        pass
+    _mats[name] = studio.material(name, *args, **kw)
     return _mats[name]
 
 

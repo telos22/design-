@@ -199,3 +199,12 @@ def prism(name, points, height, location=(0, 0, 0), mat=None):
     if mat:
         assign(obj, mat)
     return obj
+
+
+def smooth_edges(obj, angle_deg=40):
+    """곡면은 부드럽게, 각진 모서리는 날카롭게 (자동 스무스)."""
+    bpy.ops.object.select_all(action="DESELECT")
+    obj.select_set(True)
+    bpy.context.view_layer.objects.active = obj
+    bpy.ops.object.shade_auto_smooth(angle=math.radians(angle_deg))
+    return obj
