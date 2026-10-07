@@ -228,3 +228,20 @@ def glb_to_json(glb_path, out_path):
     doc["buffers"][0]["uri"] = "data:application/octet-stream;base64," + base64.b64encode(binary).decode()
     with open(out_path, "w") as f:
         json.dump(doc, f, separators=(",", ":"))
+
+
+def cable(name, points, mat, radius=0.02):
+    """점들을 부드럽게 잇는 전선 (NURBS 곡선)."""
+    curve = bpy.data.curves.new(name, "CURVE")
+    curve.dimensions = "3D"
+    curve.bevel_depth = radius
+    spline = curve.splines.new("NURBS")
+    spline.points.add(len(points) - 1)
+    for p, co in zip(spline.points, points):
+        p.co = (*co, 1)
+    spline.use_endpoint_u = True
+    spline.order_u = 3
+    obj = bpy.data.objects.new(name, curve)
+    bpy.context.collection.objects.link(obj)
+    obj.data.materials.append(mat)
+    return obj
