@@ -42,6 +42,7 @@ studio.studio(floor_color=(0.62, 0.62, 0.61), world_strength=0.5, scale=3)
 desk()
 studio.camera(target=(0, 0, 4.4), distance=24, height=13, angle_deg=-30, lens=40)
 print(studio.render("001_desk_big_final", samples=96, resolution=(1600, 1100), view="Standard", exposure=-1.6))
+bpy.ops.wm.save_as_mainfile(filepath=os.path.join(studio.REPO, "exports", "001_desk_big_final.blend"))  # 조명·카메라 포함
 
 # 2) 3D 모델 (책상만, 미터 단위)
 studio.new_scene()
