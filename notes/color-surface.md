@@ -12,3 +12,12 @@ _2026-10-07 조사_
 ## 출처
 - https://complaints.lsu.edu/ehs/files/Section_V_Part_E_Illumination_for_Occupational_Tasks.pdf
 - https://www.trilux.com/en/lighting-practice/indoor-lighting/quality-criteria-of-lighting/luminance-distribution/
+
+## 디터 람스의 색 (2026-10-07)
+- 람스: "Braun에서는 늘 밝은 색 사용에 반대했다. 주된 색은 흰색, 밝은 회색, 검정, 금속색이었다."
+  빨강·노랑·파랑은 강한 색을 원하는 사람을 위한 '선택지'로만 극소수.
+- 색은 **사용자에게 무언가를 알려줄 때만** 쓴다 (예: 스위치·버튼의 신호색).
+- 원칙 5 "좋은 디자인은 눈에 띄지 않는다(unobtrusive)": 제품은 도구다. 중립적이고 절제되어
+  **사용자가 자신을 표현할 여지**를 남겨야 한다. → 내 "비어 있어야 생각을 채운다"와 같은 방향.
+- 출처: https://www.braun-audio.com/en-ES/stories/design/braun-colour-choices/ ,
+  https://designwanted.com/design-icons-dieter-rams/
