@@ -36,3 +36,4 @@
 - https://gensler.com/uploads/document/337/file/2013_US_Workplace_Survey_07_15_2013.pdf
 - https://www.fmlink.com/workplace-environment-is-optimal-for-only-one-in-four-u-s-workers-finds-gensler/
 - https://www.dexigner.com/news/27055 · https://amp.scmp.com/property/international/article/1643100/living-office-concept-new-species-worker · https://gbdmagazine.com/27-herman-miller/
+- 공부(혼자): Gensler에는 '배움(Learn)'으로 있음(교육·개념 탐색·암기·가르치기·적용, 지적 자본). Herman Miller 혼자 3가지에는 따로 없음 → 창작(내용을 다룸)·관조(읽고 돌아봄)에 걸쳐 있다고 Claude가 해석
