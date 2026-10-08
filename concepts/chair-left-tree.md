@@ -86,3 +86,12 @@ D14 소리·흔들림이 집중을 깬다 (추정)
 - 이상적인 앉은 모습(조건 초안): ① 골반이 뒤로 눕지 않아 허리 곡선이 산다 ② 엉덩이 각도가 90°보다 열려 있다 ③ 발이 바닥에, 허벅지가 고르게 얹힌다 ④ 머리가 몸통 위 ⑤ 이 안에서 자세가 계속 바뀐다
 - 전략: A 구조로 못 구부리게 막기 vs B 구부정의 원인을 빼서 바른 쪽이 가장 편하게 (Claude 추천 B)
 - 출처: https://www.painscience.com/biblio/slouching-only-slightly-associated-with-adolescent-back-pain.html · https://espace.curtin.edu.au/handle/20.500.11937/30467 · https://pmc.ncbi.nlm.nih.gov/articles/PMC4483391 · https://pmc.ncbi.nlm.nih.gov/articles/PMC4155214 · https://www.sunrisemedical.com/education-in-motion/resources/seating/pelvic-and-spinal-postures · https://www.vivid.care/insights/advice-tips/posterior-tilt-specialist-seating/
+
+### 사용자 정리: 이상적인 앉은 모습도 '하지 않아야 할 것'으로 나온다 (2026-10-08)
+이상적인 앉은 모습 = 아래를 하지 않는 모든 자세 (기준값은 임시)
+- N1 골반이 뒤로 눕지 않는다 (허리 곡선이 무너지지 않는다)
+- N2 엉덩이 각도가 90°보다 닫히지 않는다
+- N3 발이 뜨지 않고, 허벅지 한 곳이 눌리지 않는다
+- N4 머리가 몸통보다 앞으로 나가지 않는다
+- N5 한 자세에 오래(약 20분: 매트 연구에서 구부정해진 시점) 머물지 않는다
+- N6 너무 오래(약 30분: 혈당·혈압 단기 실험) 일어나지 않고 앉아 있지 않는다
