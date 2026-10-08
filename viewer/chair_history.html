@@ -1,0 +1,313 @@
+<title>의자 계보</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap">
+<style>
+  /* 레이아웃: 제도판 위에 놓인 의자 옆모습 카드. 흐름 4개로 나눈 섹션마다 카드 그리드 */
+  :root {
+    --bg: #eceef0;
+    --panel: #f7f8f9;
+    --ink: #1b2126;
+    --muted: #55606a;
+    --line: #cdd3d8;
+    --accent: #2f55d4;
+    --fill: #dde3ea;
+    --font-display: "Noto Serif KR", "Batang", serif;
+    --font-body: "Noto Sans KR", system-ui, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #13171b; --panel: #1b2025; --ink: #e7ebee; --muted: #9aa5ae;
+      --line: #2d353c; --accent: #93a9ff; --fill: #2a323a; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #13171b; --panel: #1b2025; --ink: #e7ebee; --muted: #9aa5ae;
+    --line: #2d353c; --accent: #93a9ff; --fill: #2a323a; color-scheme: dark;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.65;
+    padding-inline: 16px;
+  }
+  .wrap { max-width: 72rem; margin-inline: auto; padding-block: 28px 64px; }
+
+  header { display: grid; gap: 14px; max-width: 46rem; }
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 6vw, 3rem);
+    line-height: 1.15;
+    margin: 0;
+    text-wrap: balance;
+  }
+  header p { margin: 0; color: var(--muted); }
+  .legend {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted);
+    display: flex; flex-wrap: wrap; gap: 6px 18px;
+    padding-top: 4px;
+  }
+  .legend span::before { content: ""; display: inline-block; width: 18px; height: 0; border-top: 2px solid var(--accent); vertical-align: middle; margin-right: 6px; }
+  .legend span.ink-key::before { border-top-color: var(--ink); border-top-width: 4px; }
+
+  nav { display: flex; flex-wrap: wrap; gap: 8px; margin-block: 28px 8px; }
+  nav a {
+    color: var(--ink); text-decoration: none;
+    border: 1px solid var(--line); background: var(--panel);
+    padding: 6px 12px; font-size: 13px;
+  }
+  nav a:hover, nav a:focus-visible { border-color: var(--accent); color: var(--accent); outline: none; }
+
+  section { padding-top: 40px; display: grid; gap: 20px; }
+  .flow-head { display: grid; gap: 4px; max-width: 46rem; }
+  .flow-head .no { font-family: var(--font-mono); font-size: 12px; color: var(--accent); letter-spacing: .08em; text-transform: uppercase; }
+  h2 { font-family: var(--font-display); font-size: clamp(1.35rem, 3.6vw, 1.75rem); margin: 0; text-wrap: balance; }
+  .flow-head p { margin: 0; color: var(--muted); }
+
+  .grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 17.5rem), 1fr)); }
+  .card { background: var(--panel); border: 1px solid var(--line); display: grid; grid-template-rows: auto 1fr; min-width: 0; }
+  .plate {
+    aspect-ratio: 1 / 1; max-width: 100%;
+    border-bottom: 1px solid var(--line);
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 10% 10%;
+    background-position: -1px -1px;
+    color: var(--ink);
+  }
+  .plate svg { display: block; width: 100%; height: 100%; }
+  .ground { stroke: var(--accent); stroke-width: 2; }
+  .ink { fill: none; stroke: currentColor; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+  .ink .t { stroke-width: 2; }
+  .ink .f { fill: var(--fill); }
+  .ink circle { fill: var(--panel); }
+
+  .body { padding: 16px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+  .meta { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .year { font-family: var(--font-mono); font-size: 20px; font-weight: 500; font-variant-numeric: tabular-nums; color: var(--accent); }
+  .name { font-family: var(--font-display); font-size: 18px; font-weight: 700; line-height: 1.3; }
+  .by { font-size: 13px; color: var(--muted); }
+  dl { margin: 0; display: grid; gap: 8px; }
+  dt { font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  dd { margin: 0; overflow-wrap: anywhere; }
+  .note { font-size: 12.5px; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 8px; }
+  .photo { font-size: 13px; color: var(--accent); text-decoration: none; justify-self: start; }
+  .photo:hover, .photo:focus-visible { text-decoration: underline; outline: none; }
+
+  .takeaway { margin-top: 48px; border-top: 1px solid var(--line); padding-top: 24px; max-width: 46rem; display: grid; gap: 10px; }
+  .takeaway ol { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
+  footer { margin-top: 28px; font-size: 13px; color: var(--muted); max-width: 46rem; }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>의자 계보</h1>
+    <p>어떤 생각에서 어떤 의자가 나왔고, 그 의자가 다음 의자에 무엇을 남겼는지를 17개 의자로 따라가 봅니다. 그림은 구조를 한눈에 보려고 제가 직접 그린 옆모습 도식입니다. 실제 사진은 각 카드의 링크에서 볼 수 있습니다.</p>
+    <div class="legend">
+      <span class="ink-key">의자 (오른쪽이 앞)</span>
+      <span>바닥</span>
+      <span>비율은 대략적이며 실측이 아닙니다</span>
+    </div>
+  </header>
+
+  <nav aria-label="흐름 바로가기">
+    <a href="#f1">1 만드는 방법</a>
+    <a href="#f2">2 쓸모와 손</a>
+    <a href="#f3">3 오래감과 체계</a>
+    <a href="#f4">4 일하는 의자</a>
+  </nav>
+
+  <section id="f1">
+    <div class="flow-head">
+      <span class="no">흐름 1</span>
+      <h2>만드는 방법이 형태를 바꾼다</h2>
+      <p>휜 나무, 강철관, 합판, 플라스틱으로 재료와 공정이 바뀔 때마다 의자의 모양도 바뀌었습니다.</p>
+    </div>
+    <div class="grid" id="g1"></div>
+  </section>
+
+  <section id="f2">
+    <div class="flow-head">
+      <span class="no">흐름 2</span>
+      <h2>쓸모와 손에서 배운다</h2>
+      <p>전통 가구에서 필요한 것만 남긴 의자들입니다.</p>
+    </div>
+    <div class="grid" id="g2"></div>
+  </section>
+
+  <section id="f3">
+    <div class="flow-head">
+      <span class="no">흐름 3</span>
+      <h2>오래 쓰고, 체계로 만든다</h2>
+      <p>한 번 만들어 오래 쓰도록 재료와 구조를 정한 의자들입니다.</p>
+    </div>
+    <div class="grid" id="g3"></div>
+  </section>
+
+  <section id="f4">
+    <div class="flow-head">
+      <span class="no">흐름 4</span>
+      <h2>일하는 의자: 모양에서 몸으로, 몸에서 움직임으로</h2>
+      <p>책상 앞에서 오래 일하는 사람을 위한 의자들입니다. 사용자님 의자가 이어질 자리입니다.</p>
+    </div>
+    <div class="grid" id="g4"></div>
+  </section>
+
+  <div class="takeaway">
+    <h2>큰 흐름 세 가지</h2>
+    <ol>
+      <li>만드는 법이 바뀌면 형태가 바뀝니다. 휜 나무, 강철관, 합판, 플라스틱, 그물망 순서입니다.</li>
+      <li>앞 의자에 대한 반발이 다음 의자를 만듭니다. 차가운 강철관에서 따뜻한 나무로, 어지러운 다리에서 다리 하나로 갔습니다.</li>
+      <li>질문이 바뀝니다. "어떻게 만들까"에서 "몸에 어떻게 맞출까"로, 다시 "몸이 어떻게 움직이게 할까"로 갔습니다.</li>
+    </ol>
+  </div>
+
+  <footer>
+    연도와 "최초" 같은 표현은 자료마다 다른 경우가 있어 카드에 따로 적었습니다. 에콰(1984), 사라(1987), 제스처(2013), 빌칸 ON은 그림 없이 <code>notes/chair-history.md</code>에만 있습니다. 출처 목록도 그 파일에 있습니다.
+  </footer>
+</div>
+
+<script>
+  const OFFICE_BASE = '<path d="M100 134V166"/><path d="M62 170H138"/><circle cx="64" cy="175" r="5"/><circle cx="136" cy="175" r="5"/>';
+
+  const CHAIRS = [
+    { flow: 1, year: "1859", name: "No.14", by: "미하엘 토네트",
+      offered: "증기로 휜 너도밤나무 6조각과 나사 10개로 만든 의자. 분해해서 상자 하나에 36개씩 실어 보냈습니다.",
+      led: "가구도 공장에서 적은 부품으로 만들 수 있다는 걸 보여 줬습니다. 1930년까지 5천만 개가 팔렸습니다.",
+      link: ["https://en.wikipedia.org/wiki/No._14_chair", "사진과 자료"],
+      svg: '<path d="M66 178L68 112C68 86 62 62 56 38C60 32 70 33 72 40"/><path d="M136 112L140 178"/><rect x="62" y="108" width="82" height="6" rx="3" class="f"/>' },
+
+    { flow: 1, year: "1918", name: "레드 블루 체어", by: "게리트 리트벨트",
+      offered: "당시 시중에 있던 표준 규격 목재만 써서 만든 의자. 의자를 판과 막대로 나누어 구조를 그대로 드러냈습니다.",
+      led: "데 스테일 운동의 상징이 되었고, 바우하우스와 국제주의 양식으로 이어졌습니다.",
+      note: "원래 디자인은 1918년이고 빨강·파랑 색은 1923년경에 입혔습니다. 자료마다 연도가 조금 다릅니다.",
+      link: ["https://www.moma.org/collection/works/4044", "MoMA 소장품"],
+      svg: '<path d="M48 176H156"/><path d="M72 90V176"/><path d="M140 90V176"/><path d="M62 90H152"/><path d="M60 150H150" class="t"/><path d="M54 36L76 122" stroke-width="8"/><path d="M70 124L142 112" stroke-width="8"/>' },
+
+    { flow: 1, year: "1925", name: "바실리 체어", by: "마르셀 브로이어",
+      offered: "자전거 핸들의 가벼움에서 출발해 구부린 강철관을 구조이자 모양으로 썼습니다. 앉는 곳과 기대는 곳은 천입니다.",
+      led: "강철관 가구의 시작이었고, 뒷다리 없는 캔틸레버 의자로 이어졌습니다.",
+      note: "사진 링크는 확인된 페이지가 없어 붙이지 않았습니다.",
+      svg: '<path d="M50 176H150V98H58V176"/><path d="M64 112C84 142 120 142 144 116" class="t"/><path d="M60 100L66 152" class="t"/>' },
+
+    { flow: 1, year: "1926~28", name: "캔틸레버 의자 (MR10·체스카)", by: "마르트 스탐, 미스 반 데어 로에, 마르셀 브로이어",
+      offered: "뒷다리를 없앴습니다. 강철관 한 줄이 바닥에서 올라와 좌판과 등을 받치고, 휘어지는 탄성까지 줍니다.",
+      led: "하나의 의자 장르가 되었습니다. 누가 먼저인가를 두고 스탐과 브로이어가 특허 분쟁을 벌였고 스탐이 이겼습니다.",
+      link: ["https://en.wikipedia.org/wiki/Cantilever_chair", "캔틸레버 의자 자료"],
+      svg: '<path d="M52 176H130V112H70L60 40"/><rect x="66" y="106" width="76" height="5" rx="2" class="f"/><path d="M76 98L70 50" class="t"/>' },
+
+    { flow: 1, year: "1931~32", name: "파이미오 체어", by: "알바르 알토",
+      offered: "차가운 강철관에 맞서 핀란드 자작나무를 휘어 만들었습니다. 요양원 환자가 숨쉬기 편하도록 등 각도를 정했다고 전해집니다.",
+      led: "MoMA는 알토의 휜 합판 가구가 임스와 사리넨에게 큰 영향을 줬다고 적고 있습니다.",
+      note: "등 각도 이야기는 널리 전해지는 설명이며 실측 자료는 확인하지 못했습니다.",
+      link: ["https://www.moma.org/collection/works/92879", "MoMA 소장품"],
+      svg: '<path d="M44 176H148"/><path d="M62 176C62 158 66 148 74 144"/><path d="M140 176V112C140 96 126 88 108 88H70"/><path d="M56 34C46 34 46 50 56 52L76 120C80 140 90 146 108 146H146C158 146 158 130 146 130"/>' },
+
+    { flow: 1, year: "1948~50", name: "임스 플라스틱 체어", by: "찰스 & 레이 임스",
+      offered: "몸에 맞춘 의자 껍데기(셸) 하나에 바꿔 끼울 수 있는 다리를 붙였습니다. 처음엔 강철이었다가 너무 비싸서 유리섬유 플라스틱으로 바꿨습니다.",
+      led: "MoMA 저가 가구 공모전(1948)에서 시작해 1950년 생산에 들어갔고, 플라스틱 의자의 대중화로 이어졌습니다.",
+      link: ["https://eamesfoundation.org/work/molded-plastic-armchair/", "임스 재단"],
+      svg: '<path d="M50 58C48 96 66 116 96 118C116 120 134 114 148 100" stroke-width="7"/><path d="M84 124L74 176"/><path d="M120 120L130 176"/><path d="M84 124L130 176M120 120L74 176" class="t"/>' },
+
+    { flow: 1, year: "1956", name: "튤립 체어", by: "에로 사리넨",
+      offered: "의자와 탁자 아래 어지러운 다리를 치우고 싶어서, 다리를 하나의 받침으로 줄였습니다.",
+      led: "받침 하나로 서는 가구의 대표가 되었습니다.",
+      link: ["https://en.wikipedia.org/wiki/Tulip_chair", "튤립 체어 자료"],
+      svg: '<path d="M52 40C50 78 68 98 98 100C118 102 136 96 148 82" stroke-width="7"/><path d="M92 104C92 146 90 162 68 176"/><path d="M108 104C108 146 110 162 132 176"/><path d="M68 176H132"/>' },
+
+    { flow: 1, year: "1967", name: "판톤 체어", by: "베르너 판톤",
+      offered: "등받이, 좌판, 받침이 끊김 없이 이어진 한 덩어리 플라스틱 의자. 한 조각으로 끝납니다.",
+      led: "한 조각 의자의 상징이 되었습니다.",
+      note: "'최초의 한 조각 플라스틱 캔틸레버'라는 말은 널리 쓰이지만, 디자인은 1960년이고 1966년 다른 의자가 먼저라는 반론도 있습니다.",
+      link: ["https://vitra.com/en-ca/page/panton-chair", "Vitra"],
+      svg: '<path d="M60 34C60 72 70 102 94 106C122 110 148 106 148 136C148 162 132 176 104 176H76" stroke-width="7"/>' },
+
+    { flow: 2, year: "19세기", name: "셰이커 의자", by: "셰이커 공동체",
+      offered: "꼭 필요한 것만 남긴 사다리 등받이 의자.",
+      led: "\"필요하고 쓸모 있지 않으면 만들지 마라. 둘 다라면 아름답게 만드는 걸 주저하지 마라\"는 말로 전해지며, 지금도 디자이너들이 인용합니다.",
+      note: "이 말은 셰이커의 말로 전해지지만 원전은 확인하지 못했습니다.",
+      link: ["https://www.roomandboard.com/blog/2023/06/modern-design-movement-shaker-design/", "셰이커 디자인 소개"],
+      svg: '<path d="M62 178L66 112L56 36"/><path d="M58 54Q66 51 72 54" class="t"/><path d="M60 70Q68 67 74 70" class="t"/><path d="M62 86Q70 83 76 86" class="t"/><path d="M138 112L142 178"/><rect x="62" y="108" width="82" height="5" rx="2" class="f"/><path d="M64 142H140" class="t"/><path d="M63 160H141" class="t"/>' },
+
+    { flow: 2, year: "1949", name: "위시본 체어", by: "한스 베그너",
+      offered: "명나라 의자에서 배워 만든 의자. 등받이의 Y자는 장식이 아니라 휜 윗부분을 튼튼하게 받치는 구조입니다.",
+      led: "1950년부터 지금까지 계속 생산됩니다. 전통에서 배운 구조가 오래 간다는 사례입니다.",
+      note: "원형인 차이니즈 체어는 1943~44년 작업으로 자료마다 연도가 다릅니다.",
+      link: ["https://en.wikipedia.org/wiki/Wishbone_chair", "위시본 체어 자료"],
+      svg: '<path d="M70 112L64 178"/><path d="M134 112L140 178"/><rect x="64" y="108" width="76" height="6" rx="3" class="f"/><path d="M70 108C66 84 62 66 60 52"/><path d="M60 52C84 46 112 58 124 82"/><path d="M82 54L74 106" class="t"/>' },
+
+    { flow: 3, year: "1944", name: "네이비 체어 1006", by: "윌턴 딩게스 (에메코)",
+      offered: "군함 갑판용으로 불에 안 타고, 물에 강하고, 가벼워야 했습니다. 알루미늄을 77단계로 가공해 강철만큼 강하고 무게는 3분의 1입니다.",
+      led: "80년 넘게 같은 의자를 만들고 있으며, 지금은 재활용 알루미늄을 씁니다.",
+      link: ["https://remosince1988.com/blogs/stories/emeco-1006-navy-chair", "에메코 소개"],
+      svg: '<path d="M44 178L62 112C62 90 60 66 58 42"/><path d="M138 112L146 178"/><path d="M60 112Q100 120 142 110" stroke-width="6"/><path d="M58 48C66 52 72 52 76 50" class="t"/><path d="M60 68C68 72 74 72 78 70" class="t"/><path d="M52 150H140" class="t"/>' },
+
+    { flow: 3, year: "1962", name: "620 체어 프로그램", by: "디터 람스 (비초에)",
+      offered: "조립식 의자. 바퀴와 회전 받침을 바꿔 끼우고, 팔걸이를 빼서 여러 개를 이으면 소파가 됩니다.",
+      led: "2013년에 모든 부품을 다시 설계해 재출시되었습니다. 오래 쓰고 고쳐 쓰는 구조의 사례입니다.",
+      link: ["https://www.vitsoe.com/us/voice/620is60", "비초에 소개"],
+      svg: '<path d="M100 134V162"/><path d="M64 166H136"/><circle cx="68" cy="175" r="5"/><circle cx="132" cy="175" r="5"/><rect x="56" y="104" width="92" height="30" rx="14" class="f"/><path d="M60 108C48 80 50 56 66 38" stroke-width="7"/><path d="M66 84H128C136 84 138 92 140 104" class="t"/>' },
+
+    { flow: 4, year: "1976", name: "에르곤", by: "빌 스텀프 (허먼밀러)",
+      offered: "정형외과·혈관 의학자와 '사람이 어떻게 앉는가'를 연구해서 만든 의자. 첫 인체공학 작업 의자로 불립니다.",
+      led: "허먼밀러가 고성능 의자의 기준을 세우는 출발점이 되었습니다.",
+      note: "'첫 인체공학 의자'는 2차 자료에서 널리 쓰이는 표현이고, 독립 검증은 못 했습니다.",
+      link: ["https://en.wikipedia.org/wiki/Bill_Stumpf", "빌 스텀프"],
+      svg: OFFICE_BASE + '<rect x="58" y="112" width="86" height="20" rx="9" class="f"/><path d="M62 112C52 84 54 54 64 30" stroke-width="13" class="t" style="stroke:var(--fill)"/><path d="M62 112C52 84 54 54 64 30" class="t"/><path d="M72 94H122V114" class="t"/>' },
+
+    { flow: 4, year: "1979", name: "발란스", by: "한스 크리스티안 멩스훌 착안, 페터 옵스비크 외 디자인",
+      offered: "앞으로 기운 좌판과 정강이 받침으로 엉덩이 각도를 열고, 아래 곡면 다리로 앉은 채 흔들리게 했습니다.",
+      led: "움직이며 앉는 의자의 출발점입니다. 옵스비크는 무릎 꿇기도 여러 자세 중 하나여야 한다고 했습니다.",
+      note: "이후 연구에서 효과는 엇갈렸습니다. 일반 의자와 차이가 없다는 연구도, 혈액순환에 도움이 된다는 연구도 있습니다.",
+      link: ["https://www.varierfurniture.com/en/stories/peter-opsvik", "Varier 소개"],
+      svg: '<path d="M44 176C80 164 120 164 156 176"/><path d="M84 106L78 166"/><path d="M114 120L120 166"/><path d="M58 94L130 120" stroke-width="9"/><path d="M142 132L128 160" stroke-width="13" class="t" style="stroke:var(--fill)"/><path d="M142 132L128 160" class="t"/>' },
+
+    { flow: 4, year: "1980", name: "FS 라인", by: "클라우스 프랑크, 베르너 자우어 (빌칸)",
+      offered: "몸을 따라 함께 움직이는 한 장짜리 유연한 의자 껍데기. 움직이며 앉기를 장려했습니다.",
+      led: "움직임을 따라가는 사무용 의자의 기준이 되었습니다.",
+      note: "'첫 사무용 동적 의자'라는 빌칸의 설명은 제조사 자료이고, 출시 연도도 1980년과 1981년으로 갈립니다.",
+      link: ["https://en.wikipedia.org/wiki/Fs_line_chair", "FS 라인 자료"],
+      svg: OFFICE_BASE + '<path d="M56 24C46 60 56 100 80 114C100 124 128 120 146 108" stroke-width="8"/>' },
+
+    { flow: 4, year: "1984", name: "카피스코", by: "페터 옵스비크 (HÅG)",
+      offered: "말안장 모양 좌판으로 낮게 앉기부터 거의 선 자세까지 오갈 수 있게 했습니다.",
+      led: "치과의사나 물리치료사처럼 몸을 계속 움직이는 직업에서 많이 쓰입니다.",
+      link: ["https://btod.com/hag-8105", "HÅG Capisco"],
+      svg: OFFICE_BASE + '<path d="M58 126C80 136 112 128 130 114L142 100" stroke-width="8"/><path d="M62 122C58 104 60 88 64 74" class="t"/><path d="M60 92L76 90" stroke-width="7" class="t"/>' },
+
+    { flow: 4, year: "1994", name: "에어론", by: "빌 스텀프, 돈 채드윅 (허먼밀러)",
+      offered: "폼과 천 대신 그물망(펠리클)을 썼습니다. 몸에 맞게 늘어나고 바람이 통합니다.",
+      led: "그물망 의자의 표준이 되었습니다. 앞서 1987년 사라 체어에서 짜인 탄성 소재를 시험했습니다.",
+      link: ["https://www.hermanmiller.com/products/seating/office-chairs/aeron-chairs/design-story/", "허먼밀러 디자인 이야기"],
+      svg: OFFICE_BASE + '<path d="M58 122C80 128 120 128 146 114"/><path d="M60 120C50 90 52 54 62 22"/><path d="M68 118C60 90 62 56 70 28" class="t"/><path d="M76 122V98H120" class="t"/>' }
+  ];
+
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+
+  function card(c) {
+    const link = c.link ? '<a class="photo" href="' + esc(c.link[0]) + '" target="_blank" rel="noopener">' + esc(c.link[1]) + ' 보기 →</a>' : '';
+    const note = c.note ? '<div class="note">' + esc(c.note) + '</div>' : '';
+    return '<article class="card">' +
+      '<div class="plate"><svg viewBox="0 0 200 200" role="img" aria-label="' + esc(c.name) + ' 옆모습 도식">' +
+      '<line class="ground" x1="16" y1="180" x2="184" y2="180"/><g class="ink">' + c.svg + '</g></svg></div>' +
+      '<div class="body">' +
+      '<div class="meta"><span class="year">' + esc(c.year) + '</span><span class="name">' + esc(c.name) + '</span></div>' +
+      '<div class="by">' + esc(c.by) + '</div>' +
+      '<dl><div><dt>제시한 것</dt><dd>' + esc(c.offered) + '</dd></div>' +
+      '<div><dt>이어진 것</dt><dd>' + esc(c.led) + '</dd></div></dl>' +
+      note + link + '</div></article>';
+  }
+
+  CHAIRS.forEach(c => {
+    const el = document.getElementById('g' + c.flow);
+    if (el) el.insertAdjacentHTML('beforeend', card(c));
+  });
+</script>
