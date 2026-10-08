@@ -42,3 +42,19 @@
 - 단점(리뷰): 허리 받침이 따로 없음, 등받이가 좁음, 팔걸이가 약함, 안장 좌판은 적응이 필요
 - '가장 편한 의자'라는 비교 연구는 찾지 못함 → 사람마다 다름
 - 출처: https://www.upliftdesk.com/capisco-chair-hag-quick-ship/ · https://freemax.com.hk/products/hag-capisco-puls-8020 · https://www.gadgetreview.com/hag-capisco-review · https://www.posturite.co.uk/business/hag-capisco-8106-ergonomic-office-chair
+
+## '자세를 자주 바꾼다'는 무슨 뜻인가 (2026-10-08)
+### 사람들은 실제로 어떻게 앉나
+- 콜센터 직원: 근무의 80% 이상을 앉아서, 앉기↔서기 전환 시간당 약 10회. 1시간마다 5분 이상 일어나는 사람은 38%뿐
+- 압력 매트 연구(1시간 타이핑): 자세 이동 시간당 약 20회. 20분이 지나면 모두 구부정해짐. 만성 허리 통증이 있는 사람은 덜 움직임
+### '올바른 자세'는 있나
+- 하나의 이상적인 자세는 없다는 쪽이 리뷰들의 흐름. 다만 바로 앉기·허리 곡선 유지 자세가 더 권장되는 편 (2010 리뷰)
+- '이상적인 자세'를 억지로 유지하려는 노력이 오히려 해로울 수 있다는 연구도 있음
+- Slater·O'Sullivan 등 (JOSPT 2019) "Sit up straight: time to re-evaluate" — 원문 확인 못 함
+- Swain 등 (2020) 41개 리뷰 종합: 자세·앉기와 허리 통증의 인과는 합의 없음
+- Bashir 등 (RSNA 2006, 학회 발표, 건강한 22명 MRI): 몸통-허벅지 135° 기대기 자세가 디스크 부담 가장 적음. 90° 바로 앉기와 구부정한 자세가 부담 큼
+### 쉬는 시간
+- 30분마다 몇 분 걷기 권장은 혈당·혈압 단기 실험에서 나온 것. 허리 통증 근거는 아님
+### 정리 (Claude)
+- 정답 자세 하나는 없다 / 그렇다고 아무 자세나도 아니다(구부정은 부담) / 좋은 자세 여러 개 사이를 쉽게 오가기 / 가끔 일어나기
+- 출처: https://pmc.ncbi.nlm.nih.gov/articles/PMC3348085 · https://doaj.org/article/ec1601ccbcd9450397d258ab51f9c38a · https://revistas.usp.br/fpusp/en/article/view/12208 · https://acuresearchbank.acu.edu.au/item/8wq8w/no-consensus-on-causality-of-spine-postures-or-physical-exposure-and-low-back-pain-a-systematic-review-of-systematic-reviews · https://pure.ul.ie/en/publications/sit-up-straight-time-to-re-evaluate/ · https://archive.rsna.org/2006/4435870.html · https://www.healthday.com/healthpro-news/cancer/rsna-optimal-sitting-position-for-desk-workers-identified-504888.html
