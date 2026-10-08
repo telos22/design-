@@ -77,3 +77,12 @@ D13 의자가 책상 아래에 부딪힌다 (추정)
 
 D14 소리·흔들림이 집중을 깬다 (추정)
 - 조사 안 됨
+
+## 이상적인 사람의 앉은 모습 (2026-10-08, 논의 중)
+사용자: 제품보다 먼저 '이상적으로 앉아 있는 사람의 모습'을 정의해야 한다.
+- 연구: 정답 자세 하나는 없음. 구부정과 통증의 관련은 약함 (O'Sullivan 2011, 청소년 1596명: 약한 관련, 심리·행동 요인이 더 강함). 구부정은 디스크 부담이 큼 (Bashir 2006 MRI, 약한 근거)
+- 거꾸로 변환: 이상적인 앉은 모습 = 구부정하게 가라앉은 모습(현실) − 구부정을 만드는 원인(현실)
+- 구부정의 원인 후보: 좌판이 높아 발이 안 닿음 / 좌판이 깊어 엉덩이가 미끄러짐 / 등받이가 너무 꼿꼿해 엉덩이 각도가 막힘 / 엉덩이 굽힘이 제한된 몸 / 근육 피로(20분 후) / 화면이 낮거나 멂(의자 밖)
+- 이상적인 앉은 모습(조건 초안): ① 골반이 뒤로 눕지 않아 허리 곡선이 산다 ② 엉덩이 각도가 90°보다 열려 있다 ③ 발이 바닥에, 허벅지가 고르게 얹힌다 ④ 머리가 몸통 위 ⑤ 이 안에서 자세가 계속 바뀐다
+- 전략: A 구조로 못 구부리게 막기 vs B 구부정의 원인을 빼서 바른 쪽이 가장 편하게 (Claude 추천 B)
+- 출처: https://www.painscience.com/biblio/slouching-only-slightly-associated-with-adolescent-back-pain.html · https://espace.curtin.edu.au/handle/20.500.11937/30467 · https://pmc.ncbi.nlm.nih.gov/articles/PMC4483391 · https://pmc.ncbi.nlm.nih.gov/articles/PMC4155214 · https://www.sunrisemedical.com/education-in-motion/resources/seating/pelvic-and-spinal-postures · https://www.vivid.care/insights/advice-tips/posterior-tilt-specialist-seating/
