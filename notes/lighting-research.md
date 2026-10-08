@@ -48,3 +48,10 @@
 - WELL v2(L03): 눈높이(앉은 1.2m) 세로면 멜라놉틱 EDI 150 이상(1단계). 상위 단계 값은 자료마다 240/275로 다름
 - 자연광: 창에 90°로 앉기(옆빛)가 화면 반사·하늘 눈부심을 줄인다는 실무 권장(WELL 기준과 일치). 다만 남동·남서 창은 눈부심이 커서 가림이 필요 (2025 연구, 21명)
 - 출처: https://www.lrc.rpi.edu/researchAreas/pdf/LRAlbanyStudyReport.pdf · https://www.lightingcontrolsassociation.org/category/topics/personal-control · https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir89-4069.pdf · https://www.lrc.rpi.edu/programs/lighthealth/pdf/Figueiro_IESConference_Aug2017.pdf · https://stacks.cdc.gov/view/cdc/222162 · https://www.lightnowblog.com/2017/06/lrc-study-finds-robust-morning-light-improves-sleep-and-mood-lowers-stress-in-office-workers/ · https://bioslighting.com/wp-content/uploads/2020/04/2019_IALD-LIRC_WELL_Guidelines-1.pdf · https://solarlits.com/jd/13-167 · https://cundall.com/zh/ideas/blog/home-working-lighting-experience-initial-review
+
+## 밝기·밝기 비·간접광 숫자 (2026-10-08)
+- 쓰는 곳 500 lx 유지 (EN 12464-1). 바로 옆 둘레는 작업면의 1/3 이상, 벽·천장 균일도 0.1 이상 (2021판, 2차 자료)
+- 밝기 비 (IES RP-1): 쓰는 곳 : 바로 옆 = 3:1 이하, 쓰는 곳 : 멀리 보이는 면 = 10:1 이하 (Fagerhult: 옆 벽 5:1)
+- 간접광 (Fagerhult, 제조사 지침): 직접 50 : 간접 50 이 흔히 선호됨. 작업면 500 lx일 때 천장 250~500 lx가 편안. 천장 평균 휘도 500 cd/m² 이하, 좁은 부분 최대 1500
+- 화면에 비치는 조명 휘도 제한 (EN 12464-1, 아래 수직에서 65° 이상 방향): 밝은 화면 3000 cd/m², 보통 1500 cd/m²
+- 출처: https://sonel.pl/en/knowledge-centre/press-articles/illuminance-measurements/en-12464-12021-key-lighting-requirements-for-indoor-work-places · https://helvar.com/wp-content/uploads/2021/05/Helvar_New_Norm_Whitepaper.pdf · https://www.trilux.com/en/lighting-practice/indoor-lighting/quality-criteria-of-lighting/limitation-of-glare/reflected-glare-on-display-screens/ · https://www.ecmweb.com/content/making-office-lighting-work · https://www.fagerhult.com/knowledge-hub/EN-12464-1/luminance-ratios/ratios-for-working-areas--room-surfaces/ · https://www.fagerhult.com/knowledge-hub/EN-12464-1/luminance-ratios/ratio-on-ceiling-with-indirect-lighting/ · https://planlux.net/light-distribution-of-luminaires-2/
