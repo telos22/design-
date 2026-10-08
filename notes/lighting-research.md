@@ -40,3 +40,11 @@
 | OLED | 가능 | 가능 | 적음 | 적음 | 넓은 면이라 적음 | 비쌈(LED의 수~수십 배), 효율 낮음, 수명 짧은 편 |
 - 눈부심 원리: 같은 빛을 넓은 면에서 내면 면적당 밝기(휘도)가 낮아져 덜 눈부심. 밝은 점 여러 개는 고른 면보다 더 낮은 평균 밝기에서도 눈부심 (2011 연구). 확산판은 빛을 조금 잃음
 - 출처: https://www.energy.gov/eere/ssl/articles/flicker-understanding-new-ieee-recommended-practice · https://www.ledsmagazine.com/content/leds/en/articles/2015/06/ieee-par1789-makes-recommendations-on-safe-levels-of-flicker-in-led-based-lighting.html · https://research.tue.nl/en/publications/a-study-on-overhead-glare-in-office-lighting-conditions/ · https://www.eeworldonline.com/top-ten-myths-of-leds-7-leds-have-high-glare/ · https://www.etoday.co.kr/news/view/763223 · https://engineerfix.com/are-halogen-bulbs-being-phased-out/ · https://www.energy.gov/eere/ssl/downloads/oled-lighting-products-capabilities-challenges-potential · https://www.eenewseurope.com/en/oleds-hardly-have-a-chance-against-led-lighting/
+
+## 연구 기관들이 보는 '좋은 조명' (2026-10-08)
+- LRC 올버니 연구(2002, 모의 사무실 288명): 편안하다 = 천장 매립 일반 조명 약 70% → 매단 직·간접 조명(아래로 책상, 위로 천장) 80% → 자리마다 머리 위 직·간접 조명 + 본인이 조절 약 90%. 자리별 조명인 사람이 조명·환경·일 만족, 조직 몰입까지 높음
+- 주의: 가구에 붙인 간접 조명 시스템에서 불만이 가장 많았음(37%, NIST) → 세부 설계가 중요
+- 생체 리듬(LRC Figueiro): 낮에 눈높이 '일주기 자극' 0.3 이상 → 졸림 감소, 활력·각성 증가, 아침에 받으면 잠도 좋아짐. 책상이 아니라 눈에서 잼. 천장 조명만으로는 비효율, 눈으로 빛을 보내는 책상 조명을 더하면 적은 에너지로 가능. 창이 있어도 계절·날씨·책상 방향 때문에 부족한 경우 많음
+- WELL v2(L03): 눈높이(앉은 1.2m) 세로면 멜라놉틱 EDI 150 이상(1단계). 상위 단계 값은 자료마다 240/275로 다름
+- 자연광: 창에 90°로 앉기(옆빛)가 화면 반사·하늘 눈부심을 줄인다는 실무 권장(WELL 기준과 일치). 다만 남동·남서 창은 눈부심이 커서 가림이 필요 (2025 연구, 21명)
+- 출처: https://www.lrc.rpi.edu/researchAreas/pdf/LRAlbanyStudyReport.pdf · https://www.lightingcontrolsassociation.org/category/topics/personal-control · https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir89-4069.pdf · https://www.lrc.rpi.edu/programs/lighthealth/pdf/Figueiro_IESConference_Aug2017.pdf · https://stacks.cdc.gov/view/cdc/222162 · https://www.lightnowblog.com/2017/06/lrc-study-finds-robust-morning-light-improves-sleep-and-mood-lowers-stress-in-office-workers/ · https://bioslighting.com/wp-content/uploads/2020/04/2019_IALD-LIRC_WELL_Guidelines-1.pdf · https://solarlits.com/jd/13-167 · https://cundall.com/zh/ideas/blog/home-working-lighting-experience-initial-review
