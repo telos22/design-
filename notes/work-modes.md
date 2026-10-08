@@ -5,6 +5,16 @@
 - Herman Miller Living Office(2013): 혼자 3가지(처리·응답, 관조, 창작) + 함께 7가지(잡담, 대화, 함께 만들기, 나눠서 같이 하기, 짧은 모임, 보여 주고 말하기, 준비·마무리) → 모드마다 맞는 자리(Haven, Hive, Cove, Forum…)
 - 앉기·서기 차이: `notes/sit-vs-stand-work.md`
 
+## 혼자 하는 일 — 두 틀은 어떻게 나눴나 (2026-10-08 추가)
+- 사용자 결정: 1인용을 먼저 만든다. 여럿이 하는 일은 1인 의자·책상을 합치는 형태로 푼다
+- Gensler는 혼자/함께로 나누지 않음. 혼자에 가까운 것 = 집중(생각·분석·쓰기·문제 해결·창작), 배움의 일부(개념 탐색·암기)
+- Herman Miller 혼자 3가지:
+  - 처리·응답(Process & Respond): 메일·전화·메시지에 답하며 일을 굴러가게 함 ("일이 만들어 내는 일")
+  - 관조(Contemplate): 멈춰서 돌아보거나 잠깐 쉼. 보통 기기도 노트도 안 씀. 새 아이디어가 나오기도 함
+  - 창작(Create): 자기 역할의 내용을 다루며 결과물을 만듦, 문제 해결
+- 출처: https://viva-interiors.com/en/catalogs/herman-miller/small-and-medium-business-2014/3437/page-5 · https://www.voices.com/blog/?p=15054 · https://gizmodo.com.au/?p=648984
+- 아래 9가지는 두 틀을 Claude가 임의로 합친 것 (원래 틀은 Gensler 4, Herman Miller 10)
+
 ## 일하는 형태 9가지 (위 두 틀을 합쳐 Claude가 정리)
 | # | 형태 | 예 | 사람 | 시간 | 자세 | 넓이 | 필요한 가구 (여러 안) |
 |---|---|---|---|---|---|---|---|
