@@ -22,3 +22,11 @@
 - https://pmc.ncbi.nlm.nih.gov/articles/PMC4386345 · https://hms.harvard.edu/news/e-readers-foil-good-nights-sleep (Chang 2015)
 - https://en.wikipedia.org/wiki/Kruithof_curve · https://eprints.whiterose.ac.uk/98531/ (Fotios 2016)
 - https://boxic24.com/english/ratgeber/workplace-lux-levels · https://www.performanceinlighting.com/au/en/en-12464-1 (EN 12464-1)
+
+## 빛이 어디서 와야 하나 (2026-10-08)
+- 그림자: 오른손잡이는 왼쪽, 왼손잡이는 오른쪽에서. 조금 앞쪽(어깨선보다 앞)에서 (Lighting Research Center, 판매처 가이드)
+- 반사(베일 반사): 빛이 작업면에 부딪혀 같은 각도로 눈에 들어오면 글씨가 뿌옇게 보임. 사람 바로 앞 위쪽이 '문제 구역'인데 스탠드가 흔히 거기 놓임 → 옆에서(한쪽 또는 양쪽) 비추는 게 해법 (LRC). 조명이 너무 낮아도 반사 (특허)
+- 눈부심: 원인은 밝기보다 광원이 눈높이에서 직접 보이는 것. 깊은 갓, 아래로 기울이기, 높이기, 확산판 (가이드). 갓의 표준 차단 각도는 찾지 못함
+- 화면 반사: 광원·화면·눈이 한 줄이 되면 반사. 모니터 위 막대 조명(BenQ ScreenBar)은 비대칭 반사판으로 빛을 책상에만 보낸다고 주장 (제조사)
+- 무광 책상면이 반사를 줄임 → 책상 001 상판 무광 (이미 맞음)
+- 출처: https://www.lrc.rpi.edu/programs/NLPIP/lightingAnswers/pdf/print/LAtask.pdf · https://www.lrc.rpi.edu/programs/lightHealth/AARP/senior/helpingOlderAdults/smallDetails.asp · https://www.back2.co.uk/blogs/article/ergonomic-desk-lamps · https://patents.google.com/patent/US4254449 · https://www.ulanzi.com/blogs/knowledges/desk-lighting-screen-glare · https://www.benq.eu/en-eu/lighting/monitor-light/screenbar
