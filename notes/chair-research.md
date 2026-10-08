@@ -33,3 +33,12 @@
 - https://btod.com/hag-8105
 - https://www.wilkhahn.com/en/products/task-chairs-office-chairs/on/
 - https://www.gvsu.edu/cms4/asset/30F6D8A1-9140-75C7-2CAACF4A83B9D5A8/seatingmeasurements.pdf
+
+## 카피스코는 왜 편하다고들 하나 (2026-10-08 추가)
+- 설계 의도(제조사·판매처 자료, 임상 근거는 못 찾음):
+  - 말안장 좌판 → 허벅지가 아래로 기울어 엉덩이 각도가 열림 → 허리 곡선이 유지되고 상체가 바로 섬
+  - 여러 자세: 앞으로(안장), 뒤로·옆으로(등받이), 거꾸로 앉아 등받이에 가슴 기대기
+  - 높이 범위가 넓음 → 일반 책상부터 거의 선 자세(높은 책상)까지
+- 단점(리뷰): 허리 받침이 따로 없음, 등받이가 좁음, 팔걸이가 약함, 안장 좌판은 적응이 필요
+- '가장 편한 의자'라는 비교 연구는 찾지 못함 → 사람마다 다름
+- 출처: https://www.upliftdesk.com/capisco-chair-hag-quick-ship/ · https://freemax.com.hk/products/hag-capisco-puls-8020 · https://www.gadgetreview.com/hag-capisco-review · https://www.posturite.co.uk/business/hag-capisco-8106-ergonomic-office-chair
