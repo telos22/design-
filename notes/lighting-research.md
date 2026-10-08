@@ -30,3 +30,13 @@
 - 화면 반사: 광원·화면·눈이 한 줄이 되면 반사. 모니터 위 막대 조명(BenQ ScreenBar)은 비대칭 반사판으로 빛을 책상에만 보낸다고 주장 (제조사)
 - 무광 책상면이 반사를 줄임 → 책상 001 상판 무광 (이미 맞음)
 - 출처: https://www.lrc.rpi.edu/programs/NLPIP/lightingAnswers/pdf/print/LAtask.pdf · https://www.lrc.rpi.edu/programs/lightHealth/AARP/senior/helpingOlderAdults/smallDetails.asp · https://www.back2.co.uk/blogs/article/ergonomic-desk-lamps · https://patents.google.com/patent/US4254449 · https://www.ulanzi.com/blogs/knowledges/desk-lighting-screen-glare · https://www.benq.eu/en-eu/lighting/monitor-light/screenbar
+
+## 광원 종류와 빛이 나오는 모양 (2026-10-08)
+| 광원 | 2700~4000K·조절 | 밝기 조절 | 깜빡임 | 열 | 눈부심 | 구할 수 있나 |
+|---|---|---|---|---|---|---|
+| 백열·할로겐 | 2700~3000K만 | 어둡게 하면 자연히 따뜻해짐 | 적음 | 뜨거움 | 작은 점 | 한국 2014 생산·수입 중단, EU 할로겐 2018~2023 퇴출 |
+| 형광등 | 조절 어려움 | 어려움 | 옛 제품 문제 | 보통 | 긴 관 | EU 2021~2023 퇴출, 수은 |
+| LED | 가능 (따뜻한·차가운 LED 섞기) | 가능 | 어둡게 할 때 위험(PWM) → 깜빡임 없는 구동 필요 (IEEE 1789: 120Hz면 10% 이하) | 적음 | 작고 매우 밝은 점 → 확산 필요 | 쉬움 |
+| OLED | 가능 | 가능 | 적음 | 적음 | 넓은 면이라 적음 | 비쌈(LED의 수~수십 배), 효율 낮음, 수명 짧은 편 |
+- 눈부심 원리: 같은 빛을 넓은 면에서 내면 면적당 밝기(휘도)가 낮아져 덜 눈부심. 밝은 점 여러 개는 고른 면보다 더 낮은 평균 밝기에서도 눈부심 (2011 연구). 확산판은 빛을 조금 잃음
+- 출처: https://www.energy.gov/eere/ssl/articles/flicker-understanding-new-ieee-recommended-practice · https://www.ledsmagazine.com/content/leds/en/articles/2015/06/ieee-par1789-makes-recommendations-on-safe-levels-of-flicker-in-led-based-lighting.html · https://research.tue.nl/en/publications/a-study-on-overhead-glare-in-office-lighting-conditions/ · https://www.eeworldonline.com/top-ten-myths-of-leds-7-leds-have-high-glare/ · https://www.etoday.co.kr/news/view/763223 · https://engineerfix.com/are-halogen-bulbs-being-phased-out/ · https://www.energy.gov/eere/ssl/downloads/oled-lighting-products-capabilities-challenges-potential · https://www.eenewseurope.com/en/oleds-hardly-have-a-chance-against-led-lighting/
