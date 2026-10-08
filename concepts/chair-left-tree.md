@@ -94,4 +94,5 @@ D14 소리·흔들림이 집중을 깬다 (추정)
 - N3 발이 뜨지 않고, 허벅지 한 곳이 눌리지 않는다
 - N4 머리가 몸통보다 앞으로 나가지 않는다
 - N5 한 자세에 오래(약 20분: 매트 연구에서 구부정해진 시점) 머물지 않는다
-- N6 너무 오래(약 30분: 혈당·혈압 단기 실험) 일어나지 않고 앉아 있지 않는다
+- N6 앉기든 서기든 한 상태로 너무 오래(약 30분: 혈당·혈압 단기 실험) 있지 않는다 — 서기가 이상인 것은 아님: 오래 서기도 해롭다(5시간 이상 서서 일하기: 다리 통증·정맥류·허리 통증, NIOSH 2015 검토 인용). 서고 앉는 책상의 건강 효과는 아직 증명 안 됨(Cochrane)
+  - 출처: https://www.cochrane.org/about-us/news/health-effects-sit-stand-desks-and-interventions-aimed-reduce-sitting-work-are-still-unproven · https://iwh.on.ca/node/1476 · https://oshwiki.osha.europa.eu/hr/themes/musculoskeletal-disorders-and-prolonged-static-standing
