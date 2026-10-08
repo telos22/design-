@@ -45,3 +45,23 @@
 - https://www.interruptions.net/literature/Kushlev-ComputHumBehav15.pdf
 - https://findanexpert.unimelb.edu.au/scholarlywork/977781-40-second-green-roof-views-sustain-attention--the-role-of-micro-breaks-in-attention-restoration · https://web.colby.edu/cogblog/?p=2413 · https://record.umich.edu/?p=89604
 - https://doi.org/10.3233/WOR-162452 · https://content.iospress.com/articles/work/wor0257 · https://hal.archives-ouvertes.fr/hal-02342062 · https://faculty.ksu.edu.sa/sites/default/files/2_part_ii_-_design_of_work_surfaces_dec_26_10.pdf
+
+## 사용자 정리 (2026-10-08)
+- 창작: 폰·물건 → 책상 001 아래 상자에 / 위가 어지러움 → 이미 '위는 비어 있다' / 시야·트인 사무실 → 공간 단계로 / 알림 → 각자(행동), 제외
+- 처리·응답: 제품으로 해결할 것 없음
+- 관조: 의자에서 쉴 수 있어야 한다(기대기) — 의자 몫
+- 공부: 책상 전체를 기울이지 않고 위에 올리는 독서대로 (책상을 기울이면 손이 기울어진 판 위에서 일해 어깨를 더 씀)
+- 지적: 방해 요인만으로는 제품을 디자인할 수 없다 → 각도·높이·넓이 같은 구체 사양이 필요
+
+## 구체 사양 (근거 있는 숫자 / 미정)
+| 일 | 무엇이 어디에 | 숫자 | 근거 |
+|---|---|---|---|
+| 창작 | 화면 | 눈에서 50~100cm, 화면 윗선은 눈높이 이하 | OSHA eTool |
+| 창작 | 키보드·마우스·지금 쓰는 종이 | 몸에서 35~45cm (1차 영역) | ISO 14738 인용 |
+| 창작 | 가끔 쓰는 것 | 61~76cm (2차 영역) 또는 상자 | ISO 14738 인용 |
+| 창작 | 펼치는 넓이 | 80cm 한 칸, 넓게는 160cm | 책상 001 (사용자 경험) |
+| 처리·응답 | 폰 | 시야 밖(상자), 답할 때만 꺼냄 | Ward 2017 |
+| 관조 | 몸 | 기대기, 몸통-허벅지 약 135° | Bashir 2006 (약함) |
+| 공부 | 책 | 독서대. 각도 근거 없음: 15°(2016 경사면), 19°·75°(석사논문, 둘 다 평평보다 나음), 45°(문서대 타이핑 20명), 60°(판매사) | 미정 → 직접 시험 |
+| 공부 | 노트 | 평평한 면, 1차 영역 | ISO 14738 인용 |
+- 출처: https://www.osha.gov/etools/computer-workstations/components/monitors · https://jurnal.harianregional.com/jei/id-71170 · https://commons.pacificu.edu/works/publication-dissertation/1jcr4-fyk16 · https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10035825/ (태블릿 기울기와 목, 아직 안 읽음)
