@@ -97,7 +97,7 @@ def shade_lamp():
     glow("Bulb", (0.5, 0.5, 0.05), (hx, hy, LAMP_Z + 0.2), 30)
     bpy.ops.object.light_add(type="SPOT", location=(hx, hy, LAMP_Z + 0.4))
     s = bpy.context.object
-    s.data.spot_size = math.radians(80)
+    s.data.spot_size = math.radians(60)
     s.data.spot_blend = 0.25
     s.data.shadow_soft_size = 0.25
     s.data.color = (1.0, 0.93, 0.82)
@@ -140,11 +140,11 @@ if VIEW == "seat":
                           .to_track_quat("-Z", "Y").to_euler())
 else:
     # 방 뒤쪽 모서리에서 선 눈높이로: 천장까지 보이게
-    studio.camera(lens=16)
+    studio.camera(lens=18)
     cam = bpy.context.scene.camera
-    cam.location = (10.5, -33.0, 15.0)
-    cam.rotation_euler = ((studio.Vector((-1.0, DESK_Y, 12.0)) - cam.location)
+    cam.location = (8.0, -21.0, 14.5)
+    cam.rotation_euler = ((studio.Vector((-0.5, DESK_Y, 12.5)) - cam.location)
                           .to_track_quat("-Z", "Y").to_euler())
 
 bpy.context.scene.cycles.max_bounces = 8
-studio.render(f"005_lamp_{VARIANT}_{VIEW}", samples=96, resolution=(960, 720), view="Standard", exposure=float(os.environ.get("EXPO", "0")))
+studio.render(os.path.join(os.environ.get("OUTDIR", ""), f"005_lamp_{VARIANT}_{VIEW}"), samples=96, resolution=(960, 720), view="Standard", exposure=1.5)
